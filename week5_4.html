@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+       <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+        <meta charset="UTF-8" />
+      <style>
+         
+      </style>              
+        <title>slow appering</title>
+    </head>
+    <body>           
+           <h1>fade in jqery</h1>
+           <button id="btn1">Show</button>
+           <div class="slowapp">
+              <table>
+                  <tr>
+                      <td> <img src="images/tease.gif" class="myimg" > </td>
+                  </tr>
+              </table>
+               
+           </div>
+            
+            <script>                
+                $(function(){
+                    var link = $('link');
+                    $('button#btn1').click(function(){
+                        var myt = $(this);
+                        if (myt.text() == "Show"){
+                            myt.text("FadeOut");
+                            /* myt.attr('text','FadeOut'); */
+                            $("div.slowapp").fadeIn();
+                            
+                        } else {
+                            myt.text("Show") ;
+                            $("div.slowapp").fadeOut();
+                          
+                        }
+                    })
+                })();
+            </script>
+    </body>
+</html>

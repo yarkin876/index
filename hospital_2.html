@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* CSS for split layout */
+    .container {
+      display: flex;
+      justify-content: center;
+    }
+
+    .left {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .right {
+      flex: 1;
+      padding: 20px;
+      border-left: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <!-- Left side for patient -->
+  <div class="container">
+    <div class="left">
+      <h2>Patient Reservation</h2>
+      <form id="myForm">
+        <input type="text" id="id" name="id" placeholder="ID">
+        <input type="text" id="name" name="name" placeholder="Name">
+        <input type="number" id="age" name="age" placeholder="Age">
+        <input type="tel" id="phone" name="phone" placeholder="Phone No">
+        <input type="text" id="address" name="address" placeholder="Address">
+        <select id="gender" name="gender">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+
+    <!-- Right side for doctor -->
+    <div class="right">
+      <h2>Doctor Confirmation</h2>
+      <table id="myTable">
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Phone No</th>
+          <th>Address</th>
+          <th>Gender</th>
+          <th>Status</th>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- JavaScript code -->
+  <script>
+    document.getElementById("myForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // prevent form submission
+
+      // Get form data
+      var id = document.getElementById("id").value;
+      var name = document.getElementById("name").value;
+      var age = document.getElementById("age").value;
+      var phone = document.getElementById("phone").value;
+      var address = document.getElementById("address").value;
+      var gender = document.getElementById("gender").value;
+
+      // Create a new row in the table
+      var table = document.getElementById("myTable");
+      var row = table.insertRow(table.rows.length);
+
+      // Populate the cells with input values
+      var idCell = row.insertCell(0);
+      var nameCell = row.insertCell(1);
+      var ageCell = row.insertCell(2);
+      var phoneCell = row.insertCell(3);
+      var addressCell = row.insertCell(4);
+      var genderCell = row.insertCell(5);
+      var statusCell = row.insertCell(6);
+      idCell.innerHTML = id;
+      nameCell.innerHTML = name;
+      ageCell.innerHTML = age;
+      phoneCell.innerHTML = phone;
+      addressCell.innerHTML = address;
+      genderCell.innerHTML = gender;
+      statusCell.innerHTML = "Pending"; // Set initial status as "Pending"
+
+      // Reset form
+      document.getElementById("myForm").reset();
+
+      // Store reservation data in Local Storage
+
+          // Store reservation data in Local Storage
+      var reservationData = {
+        id: id,
+        name: name,
+        age: age,
+        phone: phone,
+        address: address,
+        gender: gender,
+        status: "Pending"
+      };
+
+      // Check if Local Storage is supported
+      if (typeof(Storage) !== "undefined") {
+        // Retrieve existing reservation data from Local Storage
+        var reservations = JSON.parse(localStorage.getItem("reservations")) || [];
+
+        // Add new reservation data to the array
+        reservations.push(reservationData);
+
+        // Store updated reservation data in Local Storage
+        localStorage.setItem("reservations", JSON.stringify(reservations));
+      } else {
+        console.log("Local Storage is not supported on this browser.");
+      }
+    });
+
+    // Function to update reservation status
+    function confirmReservation(row) {
+      var reservations = JSON.parse(localStorage.getItem("reservations"));
+      var id = row.cells[0].innerHTML;
+      var statusCell = row.cells[6];
+
+      // Update status to "Confirmed"
+      for (var i = 0; i < reservations.length; i++) {
+        if (reservations[i].id === id) {
+          reservations[i].status = "Confirmed";
+          statusCell.innerHTML = "Confirmed";
+          localStorage.setItem("reservations", JSON.stringify(reservations));
+          break;
+        }
+      }
+    }
+
+    // Event delegation for dynamically added table rows
+    document.getElementById("myTable").addEventListener("click", function(event) {
+      if (event.target.tagName === "BUTTON") {
+        var row = event.target.parentNode.parentNode;
+        confirmReservation(row);
+      }
+    });
+  </script>
+</body>
+</html>

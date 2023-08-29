@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Doctor Side</title>
+</head>
+<body>
+  <h1>Doctor Side</h1>
+  <table id="myTable">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th>Gender</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Rows will be dynamically added here -->
+    </tbody>
+  </table>
+
+  <script>
+    // Retrieve reservation data from Local Storage
+    var reservations = JSON.parse(localStorage.getItem("reservations")) || [];
+
+    // Populate the table with reservation data
+    var tableBody = document.querySelector("#myTable tbody");
+    for (var i = 0; i < reservations.length; i++) {
+      var row = document.createElement("tr");
+      row.innerHTML = "<td>" + reservations[i].id + "</td>" +
+                      "<td>" + reservations[i].name + "</td>" +
+                      "<td>" + reservations[i].age + "</td>" +
+                      "<td>" + reservations[i].phone + "</td>" +
+                      "<td>" + reservations[i].address + "</td>" +
+                      "<td>" + reservations[i].gender + "</td>" +
+                      "<td>" + reservations[i].status + "</td>" +
+                      "<td><button>Confirm</button></td>";  // Confirm button
+      tableBody.appendChild(row);
+    }
+
+    // Function to update reservation status
+    function confirmReservation(row) {
+      var id = row.cells[0].innerHTML;
+      var statusCell = row.cells[6];
+
+      // Update status to "Confirmed"
+      for (var i = 0; i < reservations.length; i++) {
+        if (reservations[i].id === id) {
+          reservations[i].status = "Confirmed";
+          statusCell.innerHTML = "Confirmed";
+          localStorage.setItem("reservations", JSON.stringify(reservations));
+          break;
+        }
+      }
+    }
+
+    // Event delegation for dynamically added table rows
+    document.getElementById("myTable").addEventListener("click", function(event) {
+      if (event.target.tagName === "BUTTON") {
+        var row = event.target.parentNode.parentNode;
+        confirmReservation(row);
+      }
+    });
+  </script>
+</body>
+</html>

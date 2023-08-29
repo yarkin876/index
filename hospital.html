@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel=stylesheet href="week2_2.css">
+        <title>BUYER EKLEME</title>
+        <style>
+            * {color: lawngreen;font-family:monospace}
+            .main {background-image: url(images/neb.gif);height: 100vh;background-size: cover;background-position: center;padding: 40px;margin-bottom: 50px;font-size: 18px;}
+            .head1 {margin-bottom: 40px;}
+            .head2 {margin-bottom: 10px;}
+            .horde {color: red}
+            .ally {color: skyblue}
+            .x {margin-bottom: 10px;}
+            .y {border-color: blue;}
+            .faction {margin-bottom: 10px;}
+            .x1,.x2,.x3, {color:green;}
+            .x3:hover{background-color: chocolate}
+            .x2:hover{background-color: chocolate}
+            .x1:hover{background-color: chocolate}
+            .buyer {
+                  background-color: burlywoodnone; color:
+                  green; padding: 9px 18px; text-align: center;
+                  text-decoration: none; display: inline-block; font-size: 14px;margin-bottom: 10px;}
+            .buyer:hover{background-color: chocolate}
+        </style>
+    </head>
+    
+    
+    <body>
+        
+        <div class="main" align="middle">
+           
+            <h3 class="head1"> APES BUYER EKLEME </h3>
+             <div class="head2" >
+                <label class="head2"> Buyer Name-Realm : </label>
+               
+                 <input type="name-realm" required>
+                 
+             </div>
+             
+               <div class="x">
+                <label for="advertiser"> Advertiser: </label>
+
+                            <select name="advertiser" id="advertiser">
+                          <option value="yolo">yolo</option>
+                          <option value="vertinrate">vertinrate</option>
+                          <option value="myhosh">myhosh</option>
+                          <option value="minik">minik</option>
+                            </select>
+                 </div>
+             
+           
+            
+            <div class="faction">
+                <label> Faction: </label>
+                <label class="horde"> Horde </label>
+                <input type="checkbox" class="horde">
+                <label class="ally"> Ally </label>
+                <input type="checkbox" class="ally">
+            </div>
+            
+            <div class="y">
+                <button class="buyer">
+                    BUYER EKLE
+                </button>
+            </div>
+            
+            <div>
+                <button class="x1"> 1</button>
+                  <button class="x2"> 2</button>
+                   <button class="x3"> 3</button>
+            </div>
+            
+          
+            
+            
+        </div>
+        
+        
+        
+    </body>
+</html>

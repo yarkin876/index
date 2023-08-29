@@ -1,0 +1,309 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="tr" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="tr" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="tr">
+<!--<![endif]-->
+<head>
+
+
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+    <title>ALMS S&#x131;nav Uygulamas&#x131;</title>
+    <link href="https://s3.cloud.ngn.com.tr/clu10-static/static/loginlogo/EE9322D42477E3F0D0A602ED4117B1EA.png" rel="shortcut icon" type="image/x-icon" />
+
+    <link href=" //alms-cdn-brdea7beaebwhvg5.z01.azurefd.net/cdn/v3_96_with_extension/Content/css.css" rel="stylesheet" />
+    <link href=" //alms-cdn-brdea7beaebwhvg5.z01.azurefd.net/cdn/v3_96_with_extension/Content/themes/base/css.css" rel="stylesheet" />
+    <link href=" //alms-cdn-brdea7beaebwhvg5.z01.azurefd.net/cdn/v3_96_with_extension/Content/basecss.css" rel="stylesheet" />
+    <link href=" //alms-cdn-brdea7beaebwhvg5.z01.azurefd.net/cdn/v3_96_with_extension/Content/metro/css.css" rel="stylesheet" />
+    <link href=" //alms-cdn-brdea7beaebwhvg5.z01.azurefd.net/cdn/v3_96_with_extension/Content/themes/uniformjs/default/css/uniform.default.min.css" rel="stylesheet" />
+    <link href=" //alms-cdn-brdea7beaebwhvg5.z01.azurefd.net/cdn/v3_96_with_extension/Content/utils.css" rel="stylesheet" />
+    <link href=" //alms-cdn-brdea7beaebwhvg5.z01.azurefd.net/cdn/v3_96_with_extension/examapp/sweetalert.css" rel="stylesheet" />
+
+
+    <link href="//alms-cdn-brdea7beaebwhvg5.z01.azurefd.net/cdn/v3_96_with_extension/Content/metrocss/themes/default.css" rel="stylesheet" id="style_color" />
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    
+    <!-- END PAGE LEVEL STYLES -->
+    <script type="text/javascript">if (!window.console) console = { log: function () { } };</script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FG5C9QZNTL"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+            gtag('config', 'G-FG5C9QZNTL', {
+                send_page_view: true
+            });
+
+
+        </script>
+
+    <script>
+        var r_gen_want_to_close = "Pencereyi kapatmak istediğinizden emin misiniz?";
+        var r_gen_trying_save_exam = "Cevabınız internet bağlantınızda ya da sistem kaynaklı yaşanan bir problemden dolayı kaydedilemedi.  Cevabınızı belirli aralıklar ile tekrar göndermeyi deneyeceğiz. Başarılı kaydedilen cevaplar, sağ taraftaki cevap anahtarında mavi renk ile gösterilmektedir.";
+        var r_gen_error = "Hata";
+        var r_gen_ok = "Tamam";
+        var r_gen_all_questions_answered = "Tüm soruları ({0}) cevapladınız.</br>Sınavı bitirmek için Evet düğmesine, sayfada kalmak için Hayır düğmesine tıklayınız. </br></br>Sınavı bitirmeniz durumunda, sınav giriş hakkınızı kullanmış olacaksınız. </br> Eğer başka giriş hakkınız yok ise sınava tekrar girmeniz mümkün olmayacaktır.";
+        var r_gen_couldnot_save_all_answers_but = "Bazı cevaplarınız başarıyla kaydedilemedi. </br></br>Cevapladığınız soru sayısı: {0} </br> Boş bırakılan soru sayısı: {1} </br> Kaydedilemeyen cevap sayısı: {2} </br></br> Kaydedilemeyen cevaplarınız, cevap anahtarında sarı renk ile gösterilmektedir. </br> Ancak merak etmeyin, Evet düğmesine tıklayarak sınavı bitirmeniz durumunda, tüm cevaplarınız(kaydedilemeyen cevaplarınız ile beraber) tekrar kaydedilecektir.</br></br>Sınavı bitirmeniz durumunda, sınav giriş hakkınızı kullanmış olacaksınız. </br> Eğer başka giriş hakkınız yok ise sınava tekrar girmeniz mümkün olmayacaktır.";
+        var r_gen_didnot_answer_all_questions = "Tüm soruları cevaplamadınız.</br></br> Cevapladığınız soru sayısı: {0} </br> Boş bırakılan soru sayısı: {1} </br></br> Sınavı bitirmek için Evet düğmesine, sayfada kalmak için Hayır düğmesine tıklayınız. </br></br> Sınavı bitirmeniz durumunda, sınav giriş hakkınızı kullanmış olacaksınız. </br> Eğer başka giriş hakkınız yok ise sınava tekrar girmeniz mümkün olmayacaktır.";
+        var r_gen_yes = "Evet";
+        var r_gen_no = "Hayır";
+        var r_gen_i_want_to_end_exam = "Sınavı bitirmek istediğinize emin misiniz?";
+        var r_gen_unanswered_question_count = "Cevaplanmamış soru sayısı";
+        var r_gen_all_questions_answered2 = "Tüm soruları yanıtladınız.";
+        var t_gen_minutes = "dakika";
+        var t_gen_seconds = "saniye";
+    </script>
+</head>
+<body class="fixed-top" style="background-color:lightgray !important;">
+
+    <!-- BEGIN HEADER -->
+    <div class="header navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner" style="background-color:lightgray !important;">
+            <div class="container-fluid" id="loginPartial">
+<a class="brand hidden-print pull-left" href="/">
+    <img src="https://s3.cloud.ngn.com.tr/clu10-static/static/loginlogo/EE9322D42477E3F0D0A602ED4117B1EA.png" alt="logo">
+</a>
+
+<ul class="nav pull-right">
+    <ul class="nav pull-right hidden-print">
+        <!-- END TODO DROPDOWN -->
+        <!-- BEGIN USER LOGIN DROPDOWN -->
+        <li class="dropdown user">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="userTooltip" data-placement="bottom" title="System Admin">
+                <div class="avatar thumb"><img src="//www.gravatar.com/avatar/c0e9c9809086d7a217058a5c6cbeefa6?d=blank&amp;s=50"></div>
+                <span class="username userTooltip" id="userTooltipSpan">190201806</span>
+                <i class="icon-angle-down icon-angle-username"></i>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href="/Home/LogOut"><i class="icon-key"></i>&nbsp;&#xC7;&#x131;k&#x131;&#x15F; Yap</a></li>
+            </ul>
+        </li>
+    </ul>
+</ul>
+</div>
+        </div>
+    </div>
+    <!-- END HEADER -->
+    <!-- BEGIN CONTAINER -->
+
+    <div id="page-container" class="page-container row-fluid">
+        <!-- BEGIN PAGE -->
+        <div class="page-content" style="margin-left:0px">
+            <!-- BEGIN PORTLET CONFIGURATION MODAL FORM-->
+            <div id="portlet-config" class="modal hide">
+                <div class="modal-header">
+                    <button data-dismiss="modal" class="close" type="button"></button>
+                    <h3></h3>
+                </div>
+                <div class="modal-body">
+                    <p></p>
+                </div>
+            </div>
+            <!-- END PORTLET CONFIGURATION MODAL FORM-->
+            <!-- BEGIN PAGE CONTAINER-->
+            <div class="container-fluid">
+                <!-- BEGIN PAGE HEADER-->
+                <!-- END PAGE HEADER-->
+                <!-- BEGIN PAGE CONTENT-->
+                
+<div class="text-left hide" id="timeWarning" style="margin-top:2%">
+    <div class="alert alert-danger" role="alert">
+        Bilgisayar saatiniz ile sistem saatiniz uyu&#x15F;mamaktad&#x131;r. L&#xFC;tfen bilgisayar saatinizi d&#xFC;zeltiniz. Bilgisayar saatinizi d&#xFC;zeltmeden s&#x131;nava ba&#x15F;layamazs&#x131;n&#x131;z.;
+    </div>
+</div>
+
+<div class="text-left">
+    <h1 class="display-4">Aktif S&#x131;nav Listesi</h1>
+    <table class="table table-hover table-responsive">
+        <thead style="background-color:lightgray">
+            <tr>
+                <td class="span4" style="text-align: center;">Ders</td>
+                <td class="span3" style="text-align: center;">S&#x131;nav Ba&#x15F;lama ve Biti&#x15F; Tarihi-Saati</td>
+                <td class="span1" style="text-align: center;">S&#x131;nav Hakk&#x131;</td>
+                <td class="span3" style="text-align: center;">Durum</td>
+                <td class="span1" style="text-align: center;">&#x130;&#x15F;lemler</td>
+            </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td class="span4" style="text-align: center;">Microprocessors - (Midterm Exam)</td>
+                    <td class="span3" style="text-align: center;">
+                        27.04.2023 - 17:00 - 18:00
+                    </td>
+                    <td class="span1" style="text-align: center;">0 / 1</td>
+                    <td class="span3" style="text-align: center;">
+
+
+                        <span>S&#x131;nav Ba&#x15F;lamad&#x131;</span>
+                    </td>
+                    <td class="span1" style="text-align: center;">
+                        <a class="btn green enabled" target = &#x27;_blank&#x27; >Ba&#x15F;la</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="span4" style="text-align: center;">German II - (GERMAN 2- MID TERM EXAM- 28.4.2023 )</td>
+                    <td class="span3" style="text-align: center;">
+                        28.04.2023 - 12:00 - 12:35
+                    </td>
+                    <td class="span1" style="text-align: center;">0 / 1</td>
+                    <td class="span3" style="text-align: center;">
+
+
+                        <span>S&#x131;nav Ba&#x15F;lamad&#x131;</span>
+                    </td>
+                    <td class="span1" style="text-align: center;">
+                        <a class="btn green disabled" target = &#x27;_blank&#x27; >Ba&#x15F;la</a>
+                    </td>
+                </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="text-left">
+    <h1 class="display-4">Tamamlanan S&#x131;navlar</h1>
+    <table class="table table-hover table-responsive">
+        <thead style="background-color:lightgray">
+            <tr>
+                <td class="span4" style="text-align: center;">Ders</td>
+                <td class="span4" style="text-align: center;">S&#x131;nav Tarihi-Saati</td>
+                <td class="span3" style="text-align: center;">Durum</td>
+                <td class="span1" style="text-align: center;">&#x130;&#x15F;lemler</td>
+            </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td class="span4" style="text-align: center;">Occupational Health and Safety II - (OHS 402 Midterm Exam)</td>
+                    <td class="span4" style="text-align: center;">
+                        25.04.2023 - 14:00 - 14:30
+                    </td>
+                    <td class="span3" style="text-align: center;">
+                        <span class="span4" style="background-color:green; color:white; padding-top:5px">Tamamland&#x131;</span>
+                        <span class="span1"></span>
+                        <span class="span7" style="color:black; font-style:italic">S&#x131;nav&#x131;n&#x131;z&#x131; bitirdiniz</span>
+                    </td>
+                    <td class="span1" style="text-align: center;">
+                        <a class="btn disabled">Ba&#x15F;la</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="span4" style="text-align: center;">Web Programming - (Web Programming Midterm 2022-23 Spring)</td>
+                    <td class="span4" style="text-align: center;">
+                        27.04.2023 - 13:00 - 13:50
+                    </td>
+                    <td class="span3" style="text-align: center;">
+                        <span class="span4" style="background-color:green; color:white; padding-top:5px">Tamamland&#x131;</span>
+                        <span class="span1"></span>
+                        <span class="span7" style="color:black; font-style:italic">S&#x131;nav&#x131;n&#x131;z&#x131; bitirdiniz</span>
+                    </td>
+                    <td class="span1" style="text-align: center;">
+                        <a class="btn disabled">Ba&#x15F;la</a>
+                    </td>
+                </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<div>
+        <a class="pull-left btn green" target="_blank" href="https://lms.uskudar.edu.tr" style="color:white;"><b>Yard&#x131;m talebinde bulunmak i&#xE7;in t&#x131;klay&#x131;n&#x131;z.</b></a>
+</div>
+<script src="//alms-cdn-brdea7beaebwhvg5.z01.azurefd.net/cdn/v3_96_with_extension/bundles/jquery.js"></script>
+<script>
+    $(document).ready(function () {
+    
+
+        var eventMethod = window.addEventListener
+            ? "addEventListener"
+            : "attachEvent";
+        var eventer = window[eventMethod];
+        var messageEvent = eventMethod === "attachEvent"
+            ? "onmessage"
+            : "message";
+
+        eventer(messageEvent, function (e) {
+            if (e.data == "refresh")
+                setTimeout(function () {
+                    location.reload();
+                }, 1000);
+        });
+
+        if ('False' == 'True')
+            $("#timeWarning").show();
+
+    });
+
+
+</script>
+
+                <!-- END PAGE CONTENT-->
+            </div>
+            <!-- END PAGE CONTAINER-->
+        </div>
+        <!-- END PAGE -->
+    </div>
+    <!-- END CONTAINER -->
+    <!-- BEGIN FOOTER -->
+    <div class="footer">
+        &copy; 2013-2023 ALMS - Advancity
+        <div class="span pull-right">
+            <span class="go-top"><i class="icon-angle-up"></i></span>
+        </div>
+    </div>
+
+    <!-- END FOOTER -->
+
+    <!-- BEGIN JAVASCRIPTS -->
+    <!-- Load javascripts at bottom, this will reduce page load time -->
+
+
+    <script src="//alms-cdn-brdea7beaebwhvg5.z01.azurefd.net/cdn/v3_96_with_extension/bundles/modernizr.js"></script>
+    <script src="//alms-cdn-brdea7beaebwhvg5.z01.azurefd.net/cdn/v3_96_with_extension/bundles/jquery.js"></script>
+    <script src="//alms-cdn-brdea7beaebwhvg5.z01.azurefd.net/cdn/v3_96_with_extension/bundles/jqueryui.js"></script>
+    <script src="//alms-cdn-brdea7beaebwhvg5.z01.azurefd.net/cdn/v3_96_with_extension/bundles/dataservice.js"></script>
+    <script src="//alms-cdn-brdea7beaebwhvg5.z01.azurefd.net/cdn/v3_96_with_extension/bundles/jqueryval.js"></script>
+    <script src="//alms-cdn-brdea7beaebwhvg5.z01.azurefd.net/cdn/v3_96_with_extension/bundles/basescripts.js"></script>
+    <script src="//alms-cdn-brdea7beaebwhvg5.z01.azurefd.net/cdn/v3_96_with_extension/bundles/app.js"></script>
+    <script src="//alms-cdn-brdea7beaebwhvg5.z01.azurefd.net/cdn/v3_96_with_extension/bundles/utils.js"></script>
+    <script src="//alms-cdn-brdea7beaebwhvg5.z01.azurefd.net/cdn/v3_96_with_extension/bundles/utilities.js"></script>
+    <script src="//alms-cdn-brdea7beaebwhvg5.z01.azurefd.net/cdn/v3_96_with_extension/Scripts/application/blmsCommon.js"></script>
+
+        <script src="//alms-cdn-brdea7beaebwhvg5.z01.azurefd.net/cdn/v3_96_with_extension/examapp/common_logger.js"></script>
+    <script src="/js/sweetalert.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            
+        });
+
+        $(".go-top").on('click', function (e) {
+            e.preventDefault();
+            $('html, body').animate({ scrollTop: 0 }, '300');
+        });
+
+        function Notification(title, text, type) {
+            swal(title, text, type);
+        }
+    </script>
+
+        <script type="text/javascript">
+         $(document).on('ajaxComplete', function (event, request, settings) {
+
+            gtag('event', 'page_view', {
+                page_title: settings.url,
+                page_location: settings.url,
+                page_path: settings.url,
+  send_to: 'G-FG5C9QZNTL'
+            })
+         });
+        </script>
+
+    
+
+</body>
